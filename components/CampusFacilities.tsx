@@ -41,13 +41,13 @@ const categories = [
 
 // --- ICONS ---
 const StarIcon: React.FC<{ filled?: boolean }> = ({ filled = true }) => (
-  <svg className={`w-5 h-5 ${filled ? 'text-yellow-400' : 'text-stone-300'}`} fill="currentColor" viewBox="0 0 20 20">
+  <svg className={`w-5 h-5 ${filled ? 'text-orange-300' : 'text-orange-100'}`} fill="currentColor" viewBox="0 0 20 20">
     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
   </svg>
 );
 
 const BookmarkIcon: React.FC<{ filled?: boolean }> = ({ filled = true }) => (
-    <svg className={`w-6 h-6 ${filled ? 'text-amber-800' : 'text-stone-400'}`} fill={filled ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className={`w-6 h-6 ${filled ? 'text-teal-400' : 'text-rose-300'}`} fill={filled ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
     </svg>
 );
@@ -60,8 +60,8 @@ const PlaceCard: React.FC<{ place: Place; isSaved: boolean; onSaveToggle: (id: s
       <div className="p-4">
         <div className="flex justify-between items-start">
             <div>
-                <h3 className="text-xl font-bold text-stone-800">{place.name}</h3>
-                <p className="text-sm text-stone-500">{place.address}</p>
+                <h3 className="text-xl font-bold text-rose-900">{place.name}</h3>
+                <p className="text-sm text-rose-600">{place.address}</p>
             </div>
             <button onClick={() => onSaveToggle(place.id)} className="p-1 -mt-1 -mr-1" aria-label={`Save ${place.name}`}>
                 <BookmarkIcon filled={isSaved} />
@@ -71,7 +71,7 @@ const PlaceCard: React.FC<{ place: Place; isSaved: boolean; onSaveToggle: (id: s
           <div className="flex" aria-label={`Rating: ${place.rating} out of 5 stars`}>
             {[...Array(5)].map((_, i) => <StarIcon key={i} filled={i < Math.round(place.rating)} />)}
           </div>
-          <span className="text-stone-600 text-sm ml-2">{place.rating.toFixed(1)} ({place.reviewCount} reviews)</span>
+          <span className="text-rose-700 text-sm ml-2">{place.rating.toFixed(1)} ({place.reviewCount} reviews)</span>
         </div>
       </div>
     </div>
@@ -134,8 +134,8 @@ const CampusFacilities: React.FC = () => {
         return (
           <div>
             <div className="flex justify-between items-center mb-6">
-                 <h2 className="text-3xl font-bold text-stone-800">{title}</h2>
-                 <button onClick={() => setActiveCategory(null)} className="text-amber-800 font-semibold hover:underline">
+                 <h2 className="text-3xl font-bold text-rose-900">{title}</h2>
+                 <button onClick={() => setActiveCategory(null)} className="text-rose-500 font-semibold hover:underline">
                     &larr; Back to Categories
                  </button>
             </div>
@@ -147,9 +147,9 @@ const CampusFacilities: React.FC = () => {
                  </div>
             ) : (
                 <div className="text-center bg-white p-8 rounded-lg shadow-sm">
-                    <h3 className="text-xl font-semibold text-stone-800">No Saved Places Yet</h3>
-                    <p className="text-stone-500 mt-2">Click the bookmark icon on a place to save it here.</p>
-                     <button onClick={() => setView('results')} className="mt-4 px-6 py-2 bg-amber-800 text-white font-semibold rounded-full hover:bg-amber-900 transition-colors">
+                    <h3 className="text-xl font-semibold text-rose-900">No Saved Places Yet</h3>
+                    <p className="text-rose-600 mt-2">Click the bookmark icon on a place to save it here.</p>
+                     <button onClick={() => setView('results')} className="mt-4 px-6 py-2 bg-rose-400 text-white font-semibold rounded-full hover:bg-rose-500 transition-colors">
                         Find Nearby Places
                     </button>
                 </div>
@@ -165,14 +165,14 @@ const CampusFacilities: React.FC = () => {
                 return (
                     <div key={category.id} className="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col justify-between">
                         <div>
-                            <h3 className="text-2xl font-bold text-stone-800">{category.title}</h3>
-                            <p className="text-stone-500 mb-6">{category.subtitle}</p>
+                            <h3 className="text-2xl font-bold text-rose-900">{category.title}</h3>
+                            <p className="text-rose-600 mb-6">{category.subtitle}</p>
                         </div>
                         <div className="flex flex-col space-y-3">
-                            <button onClick={() => handleAction(category, 'results')} className="w-full px-6 py-3 bg-amber-800 text-white font-semibold rounded-full hover:bg-amber-900 transition-colors">
+                            <button onClick={() => handleAction(category, 'results')} className="w-full px-6 py-3 bg-rose-400 text-white font-semibold rounded-full hover:bg-rose-500 transition-colors">
                                 Find Nearby
                             </button>
-                            <button onClick={() => handleAction(category, 'saved')} className="w-full px-6 py-3 bg-stone-700 text-white font-semibold rounded-full hover:bg-stone-800 transition-colors">
+                            <button onClick={() => handleAction(category, 'saved')} className="w-full px-6 py-3 bg-red-300 text-white font-semibold rounded-full hover:bg-red-400 transition-colors">
                                 Show Saved ({savedCount})
                             </button>
                         </div>
@@ -183,17 +183,17 @@ const CampusFacilities: React.FC = () => {
     );
 
     return (
-        <section className="py-20 bg-stone-100">
+        <section className="py-20 bg-lime-100">
             <div className="container mx-auto px-4">
                 {!activeCategory && (
                      <div className="text-center mb-12">
                          <div className="flex justify-center items-center mb-4">
-                            <svg className="h-8 w-8 text-amber-800 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="h-8 w-8 text-rose-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                             </svg>
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-stone-800">Campus Facilities</h2>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-rose-900">Campus Facilities</h2>
                         </div>
-                        <p className="text-lg text-stone-500 max-w-2xl mx-auto">Discover and save key places around campus.</p>
+                        <p className="text-lg text-rose-600 max-w-2xl mx-auto">Discover and save key places around campus.</p>
                     </div>
                 )}
                 {activeCategory ? renderDetailedView() : renderCategorySelection()}

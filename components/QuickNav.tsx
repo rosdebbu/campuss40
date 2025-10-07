@@ -24,16 +24,16 @@ const navItems: NavItem[] = [
 
 const NavButton: React.FC<{ item: NavItem }> = ({ item }) => (
     <div className="flex flex-col items-center space-y-2 group">
-        <button className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md text-amber-800 hover:bg-amber-50 transition-all duration-300 transform hover:-translate-y-1">
+        <button className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md text-rose-500 hover:bg-rose-50 transition-all duration-300 transform hover:-translate-y-1">
             <item.icon />
         </button>
-        <span className="text-sm font-medium text-stone-600 group-hover:text-amber-800 transition-colors duration-300">{item.label}</span>
+        <span className="text-sm font-medium text-rose-700 group-hover:text-rose-500 transition-colors duration-300">{item.label}</span>
     </div>
 );
 
 const QuickNav: React.FC = () => {
     return (
-        <section className="py-16 bg-stone-100">
+        <section className="py-16 bg-lime-100">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-4 md:grid-cols-8 gap-4 md:gap-8">
                     {navItems.map(item => (
